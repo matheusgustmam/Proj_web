@@ -8,8 +8,21 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Table(name: "tb_cliente")]
 class Cliente extends GenericModel{
 
-    #[ORM\Column(type: 'sting')]
+    #[ORM\Column(type: 'string')]
     private $nome;
+
+    #[ORM\Column(type: 'string')]
+    private $textinho;
+
+    public function getTextinho()
+    {
+        return $this->textinho;
+    }
+
+    public function setTextinho($textinho)
+    {
+        $this->textinho = $textinho;
+    }
 
     public function getNome()
     {
