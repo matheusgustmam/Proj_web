@@ -4,7 +4,7 @@ session_start();
 
 require "../vendor/autoload.php";
 
-define('BASE_URL','Proj_web');
+define('BASE_URL','');
 
 $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r){
 
@@ -42,7 +42,7 @@ switch ($route[0]) {
 
     case FastRoute\Dispatcher::FOUND:
 
-        [$controllerClass, $action] = explode('@', $route[1]);
+        [$controllerClass, $action = explode('@', $route[1]);
         $params = $route[2];
 
         $controllerNamespace = "controller\\{$controllerClass}";
