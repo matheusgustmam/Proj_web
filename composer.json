@@ -1,0 +1,29 @@
+{
+    "name": "matheus-gts/proj_web",
+    "autoload": {
+        "psr-4": {
+            "MatheusGts\\ProjWeb\\": "src/",
+            "controller\\": "src/controller",
+            "model\\": "src/model/",
+            "dao\\": "src/dao/",
+            "utils\\": "src/utils"
+        }
+    },
+    "authors": [
+        {
+            "name": "MatheusGTS",
+            "email": "matheusgustmam@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^9.6"
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.6",
+        "doctrine/orm": "^2.20",
+        "symfony/cache": "^5.4",
+        "symfony/console": "^6.0",
+        "nikic/fast-route": "^1.3",
+        "doctrine/dbal": "^3.10"
+    }
+}
