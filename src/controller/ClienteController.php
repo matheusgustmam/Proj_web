@@ -11,8 +11,13 @@ class ClienteController
 {
     public function index()
     {
-        header('Location: ' . BASE_URL . '/clientes');
-        exit;
+        try {
+            $clientes = ClienteDAO::listar();
+            require __DIR__ . "/../view/pag-clientes.php";
+
+        } catch(Exception $ex){
+            echo $ex->getMessage();
+        }
     }
 
     public function buscar(array $params)

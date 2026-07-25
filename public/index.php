@@ -16,6 +16,8 @@ $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r){
     $r->post('/clientes/cadastrar', 'ClienteController@Comentario');
     $r->post('/clientes/{id}/remover', 'ClienteController@remover');
 
+
+
 });
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
