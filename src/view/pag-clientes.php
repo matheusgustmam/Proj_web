@@ -1,6 +1,6 @@
 <?php
 
-$rota_clientes = BASE_URL. "/";
+$rota_clientes = BASE_URL. "/clientes";
 ?>
 
 <!doctype html>

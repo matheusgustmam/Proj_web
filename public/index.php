@@ -4,7 +4,7 @@ session_start();
 
 require "../vendor/autoload.php";
 
-define('BASE_URL','');
+define('BASE_URL','/Proj_web/public');
 
 $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r){
 
@@ -13,12 +13,12 @@ $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r){
     $r->get('/clientes/novo', 'ClienteController@novo');
     $r->get('/clientes/{id}/editar', 'ClienteController@editar');
     $r->get('/clientes/{id}', 'ClienteController@buscar');
-    $r->post('/clientes/cadastrar', 'ClienteController@cadastrar');
+    $r->post('/clientes/cadastrar', 'ClienteController@Comentario');
     $r->post('/clientes/{id}/remover', 'ClienteController@remover');
 
 });
 
-$uri = parse_url($_SERVER['REQUEST_URL'])['path'];
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 $basePath = rtrim(dirname(dirname($_SERVER['SCRIPT_NAME'])),'/');
 $uri = substr($uri, strlen($basePath)) ?: '/';
@@ -42,7 +42,7 @@ switch ($route[0]) {
 
     case FastRoute\Dispatcher::FOUND:
 
-        [$controllerClass, $action = explode('@', $route[1]);
+        [$controllerClass, $action] = explode('@', $route[1]);
         $params = $route[2];
 
         $controllerNamespace = "controller\\{$controllerClass}";

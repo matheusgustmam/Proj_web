@@ -9,6 +9,26 @@ use model\Cliente;
 
 class ClienteController
 {
+    public function index()
+    {
+        header('Location: ' . BASE_URL . '/clientes');
+        exit;
+    }
+
+    public function buscar(array $params)
+    {
+        try {
+            $cliente = ClienteDAO::buscarId($params['id']);
+
+            if (empty($cliente)) {
+                throw new Exception("Cliente não encontrado.");
+            }
+
+            require __DIR__ . "/../view/pag-clientes.php";
+        } catch (Exception $ex) {
+            echo $ex->getMessage();
+        }
+    }
     public function novo()
     {
         try {
@@ -17,11 +37,11 @@ class ClienteController
             require __DIR__ . "/../view/pag-clientes.php";
         } catch (Exception $ex){
             $_SESSION["mensagem_erro_detalhado"] = $ex->getMessage();
-            header("Location " . BASE_URL . '/clientes');
+            header("Location: " . BASE_URL . '/clientes');
         }
     }
 
-    public function Comentario()
+    public function cadastrar()
     {
         try {
             $id = filter_input(INPUT_POST, 'id' , FILTER_SANITIZE_NUMBER_INT);
@@ -38,27 +58,39 @@ class ClienteController
 
             ClienteDAO::salvar($cliente);
 
-            header('Location' . BASE_URL . '/clientes');
+            header('Location: ' . BASE_URL . '/clientes');
             $_SESSION["mensagem_sucesso"] = "Comentario Salvo com sucesso.";
 
         }catch (Exception $ex){
             $_SESSION["mensagem_erro"] = 'Falha ao Salvar Comentario. ';
             $_SESSION["mensagem_erro_detalhado"] = $ex->getMessage();
+            header('Location: ' . BASE_URL . '/clientes/novo');
         } finally {
             exit;
         }
     }
 
-    public function editar(array $prams)
+    public function editar(array $params)
     {
         try {
-            $id = $prams['id'];
+            $id = $params['id'];
             $cliente = ClienteDAO::buscarId($id);
             if(empty($cliente)){
                 throw new Exception("Cliente não encontrado");
             }
         } catch (Exception $ex){
             echo "Falha ao buscar cliente" . $ex->getMessage();
+        } finally {
+            require __DIR__ . "/../view/pag-clientes.php";
+        }
+    }
+
+    public function listar()
+    {
+        try {
+            $clientes = ClienteDAO::listar();
+        } catch (Exception $ex) {
+            echo "Falha ao listar os clientes" . $ex->getMessage();
         } finally {
             require __DIR__ . "/../view/pag-clientes.php";
         }
@@ -80,7 +112,8 @@ class ClienteController
             $_SESSION["mensagem_erro"] = 'Falha ao remover Comentario';
             $_SESSION["mensagem_erro_detalhado"] = $ex->getMessage();
         } finally {
-          header('Location ' . BASE_URL . '/clientes');
+          header('Location: ' . BASE_URL . '/clientes');
+          exit;
         }
     }
 }
