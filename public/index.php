@@ -4,9 +4,11 @@ session_start();
 
 require "../vendor/autoload.php";
 
-define('BASE_URL','/Proj_web');
+define('BASE_URL','/Proj_web/public');
+
 
 $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r){
+
 
     $r->get('/clientes', 'ClienteController@listar');
     $r->get('/clientes/novo', 'ClienteController@novo');
@@ -19,9 +21,9 @@ $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r){
 
 });
 
-$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
-$basePath = rtrim(dirname(dirname($_SERVER['SCRIPT_NAME'])),'/');
+$basePath = rtrim(dirname($_SERVER['SCRIPT_NAME']),'/');
 $uri = substr($uri, strlen($basePath)) ?: '/';
 
 $method = $_SERVER['REQUEST_METHOD'];

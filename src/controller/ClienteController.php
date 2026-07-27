@@ -9,21 +9,6 @@ use model\Cliente;
 
 class ClienteController
 {
-
-    public function buscar(array $params)
-    {
-        try {
-            $cliente = ClienteDAO::buscarId($params['id']);
-
-            if (empty($cliente)) {
-                throw new Exception("Cliente não encontrado.");
-            }
-
-            require __DIR__ . "/../view/pag-clientes.php";
-        } catch (Exception $ex) {
-            echo $ex->getMessage();
-        }
-    }
     public function novo()
     {
         try {
@@ -51,6 +36,7 @@ class ClienteController
 
             $cliente->setNome($nome);
             $cliente->setTextinho($textinho);
+            $cliente->setEmail($email);
 
             ClienteDAO::salvar($cliente);
 
@@ -77,7 +63,22 @@ class ClienteController
         } catch (Exception $ex){
             echo "Falha ao buscar cliente" . $ex->getMessage();
         } finally {
-            require __DIR__ . "/../view/pag-clientes.php";
+            require __DIR__ . "/../view/pag-comentarios.php";
+        }
+    }
+
+    public function buscar(array $params)
+    {
+        try {
+            $id = $params['id'];
+            $cliente = ClienteDAO::buscarId($id);
+            if (empty($cliente)) {
+                throw new Exception("Cliente não encontrado");
+            }
+        } catch (Exception $ex) {
+            echo "Falha ao buscar cliente" . $ex->getMessage();
+        } finally {
+            require __DIR__ . "/../view/pag-comentarios.php";
         }
     }
 
