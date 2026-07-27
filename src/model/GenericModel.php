@@ -2,6 +2,8 @@
 namespace model;
 
 use Doctrine\ORM\Mapping as ORM;
+
+#[ORM\MappedSuperclass]
 abstract class GenericModel
 {
     #[ORM\Id]
