@@ -1,5 +1,6 @@
 <?php
-
+/** @var \model\Cliente[] $clientes */
+/** @var \model\Cliente $cliente */
 $rota_clientes = BASE_URL. "/clientes";
 ?>
 

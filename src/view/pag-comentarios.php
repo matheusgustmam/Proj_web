@@ -1,6 +1,7 @@
 <?php
+/**  @var model\Cliente $cliente ; */
 
-$rota_clientes = BASE_URL. "/clientes";
+
 ?>
 
 <!doctype html>
@@ -14,7 +15,11 @@ $rota_clientes = BASE_URL. "/clientes";
 <?php require_once "templates/template-menu.php" ?>
 
 <div class="mt-5"></div>
-
+<form id="formCadastroCliente" action="<?= BASE_URL . '/clientes/cadastrar' ?>"
+      method="POST"
+      enctype="multipart/form-data"
+>
+    <input type="hidden" name="id" value="<?= htmlspecialchars($cliente->getId() ?? '') ?>">
 
 
 <?php require_once "templates/template-rodape.php" ?>

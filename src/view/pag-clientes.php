@@ -1,6 +1,6 @@
 <?php
+/*** @var model\Cliente $cliente**/
 
-$rota_clientes = BASE_URL. "/clientes";
 ?>
 
 <!doctype html>

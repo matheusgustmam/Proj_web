@@ -6,7 +6,7 @@
             "controller\\": "src/controller",
             "model\\": "src/model/",
             "dao\\": "src/dao/",
-            "utils\\": "src/utils"
+            "utils\\": "src/utils/"
         }
     },
     "authors": [
