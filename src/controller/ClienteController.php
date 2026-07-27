@@ -9,16 +9,6 @@ use model\Cliente;
 
 class ClienteController
 {
-    public function index()
-    {
-        try {
-            $clientes = ClienteDAO::listar();
-            require __DIR__ . "/../view/pag-clientes.php";
-
-        } catch(Exception $ex){
-            echo $ex->getMessage();
-        }
-    }
 
     public function buscar(array $params)
     {
@@ -52,6 +42,7 @@ class ClienteController
             $id = filter_input(INPUT_POST, 'id' , FILTER_SANITIZE_NUMBER_INT);
             $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
             $textinho  = filter_input(INPUT_POST, 'textinho', FILTER_SANITIZE_SPECIAL_CHARS);
+            $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_SPECIAL_CHARS);
 
             $cliente = $id ? ClienteDAO::buscarId($id) : new Cliente();
 
@@ -97,7 +88,7 @@ class ClienteController
         } catch (Exception $ex) {
             echo "Falha ao listar os clientes" . $ex->getMessage();
         } finally {
-            require __DIR__ . "/../view/pag-clientes.php";
+            require __DIR__ . "/../view/pag-comentarios.php";
         }
     }
 

@@ -4,16 +4,15 @@ session_start();
 
 require "../vendor/autoload.php";
 
-define('BASE_URL','/Proj_web/public');
+define('BASE_URL','/Proj_web');
 
 $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r){
 
-    $r->get('/', 'ClienteController@index');
     $r->get('/clientes', 'ClienteController@listar');
     $r->get('/clientes/novo', 'ClienteController@novo');
     $r->get('/clientes/{id}/editar', 'ClienteController@editar');
     $r->get('/clientes/{id}', 'ClienteController@buscar');
-    $r->post('/clientes/cadastrar', 'ClienteController@Comentario');
+    $r->post('/clientes/cadastrar', 'ClienteController@cadastrar');
     $r->post('/clientes/{id}/remover', 'ClienteController@remover');
 
 
