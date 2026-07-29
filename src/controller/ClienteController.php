@@ -9,6 +9,18 @@ use model\Cliente;
 
 class ClienteController
 {
+
+    public function testp ()
+    {
+        try {
+
+            require __DIR__ . "/../view/pag-inicial.php";
+        }catch (Exception $ex){
+            $_SESSION["mensagem_erro_detalhado"] = $ex->getMessage();
+        }
+    }
+
+
     public function novo()
     {
         try {
@@ -21,7 +33,7 @@ class ClienteController
         }
     }
 
-    public function cadastrar()
+    public function comentario()
     {
         try {
             $id = filter_input(INPUT_POST, 'id' , FILTER_SANITIZE_NUMBER_INT);

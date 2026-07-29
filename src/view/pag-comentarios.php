@@ -22,6 +22,8 @@
     <input type="hidden" name="id" value="<?= htmlspecialchars($cliente->getId() ?? '') ?>">
 
 
+
+
 <?php require_once "templates/template-rodape.php" ?>
 </body>
 </html>
