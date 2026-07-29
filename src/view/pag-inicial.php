@@ -16,7 +16,7 @@ $rota_clientes = BASE_URL. "/clientes";
 <div class="mt-5"></div>
 
 
-<div style="height:100px;background:linear-gradient(90deg, #2d7845, #8ab89a 50%, #2d7845)"></div>
+<!-- <div style="height:100px;background:linear-gradient(90deg, #2d7845, #8ab89a 50%, #2d7845)"></div> -->
 
 
 <div id="carouselExample" class="carousel slide">
@@ -41,8 +41,10 @@ $rota_clientes = BASE_URL. "/clientes";
     </button>
 </div>
 
-<div style="height:100px;background:linear-gradient(90deg, #2d7845, #8ab89a 50%, #2d7845)"></div>
 
+<!-- <div style="height:100px;background:linear-gradient(90deg, #2d7845, #8ab89a 50%, #2d7845)"></div> -->
+
+<!--
 
 <section id="contato" class="py-8 md:py-12 px-6" style="background-color:#f8f9f7">
     <div class="max-w-5xl mx-auto">
@@ -65,8 +67,8 @@ $rota_clientes = BASE_URL. "/clientes";
                             </svg>
                             <span class="text-xs font-bold tracking-widest uppercase" style="color:#1a5c32">Endereço</span>
                         </div>
-                        <p class="text-sm" style="color:#444444">Rua Padre Aquiles Saporiti, 1100</p>
-                        <p class="text-sm" style="color:#444444">Bairro Cascatinha, Palmas — PR</p>
+                        <p class="text-sm" style="color:#444444">Av. Bento Munhoz da Rocha Neto, s/nº</p>
+                        <p class="text-sm" style="color:#444444">Bairro Universitário, Palmas — PR</p>
                     </div><a href="https://wa.me/5546999233742" target="_blank" rel="noopener noreferrer" class="p-4 bg-white transition-opacity hover:opacity-80" style="border:1px solid #e8e8e8;display:block">
                         <div class="flex items-center gap-2 mb-2">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="#1a5c32" aria-hidden="true">
@@ -134,11 +136,318 @@ $rota_clientes = BASE_URL. "/clientes";
     </div>
 </section>
 
-
+-->
 
 
 
 <div style="height:100px;background:linear-gradient(90deg, #2d7845, #8ab89a 50%, #2d7845)"></div>
+
+<div class="container py-5">
+
+    <!-- Título -->
+    <div class="text-center mb-5">
+        <div class="mb-2 fs-4" style="color:#1a5c32;">✦</div>
+
+        <h2 style="font-family:'Crimson Pro', Georgia, serif;color:#1e1e1e;">
+            Contato
+        </h2>
+
+        <p class="text-secondary">
+            Estamos aqui para recebê-lo
+        </p>
+    </div>
+
+    <div class="row g-4">
+
+        <!-- Informações -->
+        <div class="col-lg-6">
+
+            <div class="row g-3">
+
+                <!-- Endereço -->
+                <div class="col-12 col-md-6">
+
+                    <div class="card h-100 border-0 shadow-sm">
+
+                        <div class="card-body">
+
+                            <h6 class="text-uppercase fw-bold mb-3"
+                                style="color:#1a5c32;font-size:.75rem;letter-spacing:2px;">
+                                📍 Endereço
+                            </h6>
+
+                            <p class="mb-1">
+                                Av. Bento Munhoz da Rocha Neto, s/nº
+                            </p>
+
+                            <p class="mb-0">
+                                Bairro Universitário, Palmas - PR
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- WhatsApp -->
+                <div class="col-12 col-md-6">
+
+                    <a href="https://wa.me/5546999785872"
+                       class="text-decoration-none">
+
+                        <div class="card h-100 border-0 shadow-sm">
+
+                            <div class="card-body">
+
+                                <h6 class="text-uppercase fw-bold mb-3"
+                                    style="color:#1a5c32;font-size:.75rem;letter-spacing:2px;">
+
+                                    <i class="bi bi-whatsapp"></i>
+
+                                    WhatsApp
+
+                                </h6>
+
+                                <p class="mb-0 text-dark">
+                                    (46) 99978-5872
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Youtube -->
+            <a href="https://www.youtube.com/@ipbpalmaspr"
+               class="card border-0 shadow-sm mt-3 text-decoration-none">
+
+                <div class="card-body d-flex align-items-center">
+
+                    <i class="bi bi-youtube fs-2 text-danger me-3"></i>
+
+                    <div>
+
+                        <h6 class="mb-1 text-uppercase fw-bold"
+                            style="color:#1a5c32;font-size:.75rem;letter-spacing:2px;">
+
+                            Canal no YouTube
+
+                        </h6>
+
+                        <span class="text-dark">
+                            youtube.com/@ipbpalmaspr
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/agrinovajr/"
+               class="card border-0 shadow-sm mt-3 text-decoration-none">
+
+                <div class="card-body d-flex align-items-center">
+
+                    <i class="bi bi-instagram fs-2 me-3"
+                       style="color:#E1306C;"></i>
+
+                    <div>
+
+                        <h6 class="mb-1 text-uppercase fw-bold"
+                            style="color:#1a5c32;font-size:.75rem;letter-spacing:2px;">
+
+                            Instagram
+
+                        </h6>
+
+                        <span class="text-dark">
+                            @agrinovajr
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+            <!-- Google Maps -->
+
+            <div class="card border-0 shadow-sm mt-3">
+
+                <iframe
+                        src="https://maps.google.com/maps?q=Instituto+Federal+do+Paran%C3%A1+Campus+Palmas&ll=-26.511755,-51.985182&z=18&output=embed"
+                        height="260"
+                        style="border:0;width:100%;"
+                        loading="lazy">
+                </iframe>
+
+            </div>
+
+            <div class="text-end mt-2">
+
+                <a href="https://maps.app.goo.gl/koqMeq5aPyJz1YFc7"
+                   target="_blank"
+                   class="text-decoration-none fw-semibold"
+                   style="color:#1a5c32;">
+
+                    Abrir no Google Maps
+                    <i class="bi bi-box-arrow-up-right"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- AQUI FICARÁ O FORMULÁRIO -->
+        <div class="col-lg-6">
+
+            <!-- Parte 2 -->
+            <div class="col-lg-6">
+
+                <div class="card border-0 shadow-sm">
+
+                    <div class="card-body p-4">
+
+                        <form id="formContato">
+
+                            <!-- Nome -->
+                            <div class="mb-3">
+                                <label for="nome" class="form-label fw-semibold">
+                                    Nome
+                                </label>
+
+                                <input
+                                        type="text"
+                                        class="form-control"
+                                        id="nome"
+                                        placeholder="Seu nome completo"
+                                        required>
+                            </div>
+
+                            <!-- Assunto -->
+                            <div class="mb-3">
+
+                                <label for="assunto" class="form-label fw-semibold">
+                                    Assunto
+                                </label>
+
+                                <select
+                                        class="form-select"
+                                        id="assunto">
+
+                                    <option selected>
+                                        Selecione um assunto
+                                    </option>
+
+                                    <option>
+                                        Primeira visita
+                                    </option>
+
+                                    <option>
+                                        Aconselhamento pastoral
+                                    </option>
+
+                                    <option>
+                                        Informações sobre batismo
+                                    </option>
+
+                                    <option>
+                                        Ministérios e serviço
+                                    </option>
+
+                                    <option>
+                                        Outros
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                            <!-- Mensagem -->
+                            <div class="mb-4">
+
+                                <label
+                                        for="mensagem"
+                                        class="form-label fw-semibold">
+
+                                    Mensagem
+
+                                </label>
+
+                                <textarea
+                                        class="form-control"
+                                        id="mensagem"
+                                        rows="6"
+                                        placeholder="Escreva sua mensagem..."
+                                        required></textarea>
+
+                            </div>
+
+                            <button
+                                    type="submit"
+                                    class="btn w-100 text-white fw-semibold py-3"
+                                    style="background:#1a5c32;">
+
+                                <i class="bi bi-whatsapp me-2"></i>
+
+                                Enviar pelo WhatsApp
+
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+    document.getElementById("formContato").addEventListener("submit", function(e){
+
+        e.preventDefault();
+
+        const nome = document.getElementById("nome").value;
+        const assunto = document.getElementById("assunto").value;
+        const mensagem = document.getElementById("mensagem").value;
+
+        const texto =
+            `Olá!
+
+Meu nome é ${nome}
+
+Assunto: ${assunto}
+
+Mensagem:
+${mensagem}`;
+
+        window.open(
+            "https://wa.me/5546999785872?text=" +
+            encodeURIComponent(texto),
+            "_blank"
+        );
+
+    });
+
+</script>
+
 
 <?php require_once "templates/template-rodape.php" ?>
 </body>
