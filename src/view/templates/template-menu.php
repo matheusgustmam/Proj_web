@@ -1,23 +1,80 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top"  >
-    <div class="container-fluid">
-        <a class="navbar-brand" href="<?= BASE_URL ?>/">
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top">
+    <div class="container">
+
+        <!-- Logo -->
+        <a class="navbar-brand d-flex align-items-center" href="<?= BASE_URL ?>/">
             <img src="<?= BASE_URL ?>/assets/img/logo_pagina.png"
                  alt="AgrinovaJr"
                  width="45"
                  height="45"
-                 class="rounded-circle">
+                 class="rounded-circle me-2">
+
+            <span class="fw-bold">AgrinovaJr</span>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+        <!-- Botão do menu mobile -->
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Alternar navegação">
+
             <span class="navbar-toggler-icon"></span>
+
         </button>
-    </div>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
 
-            </li>
-        </ul>
-    </div>
+        <!-- Menu -->
+        <div class="collapse navbar-collapse" id="navbarNav">
 
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link active"
+                       href="<?= BASE_URL ?>/">
+                        Início
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="<?= BASE_URL ?>/#sobre">
+                        Sobre Nós
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="<?= BASE_URL ?>/clientes">
+                        Clientes
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="<?= BASE_URL ?>/#contato">
+                        Contato
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="<?= BASE_URL ?>/clientes">
+                        Comentarios
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="<?= BASE_URL ?>/Serviços">
+                        Serviços
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
 </nav>
-

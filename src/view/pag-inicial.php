@@ -16,6 +16,7 @@ $rota_clientes = BASE_URL. "/clientes";
 <div class="mt-5"></div>
 
 
+
 <!-- <div style="height:100px;background:linear-gradient(90deg, #2d7845, #8ab89a 50%, #2d7845)"></div> -->
 
 
@@ -40,6 +41,287 @@ $rota_clientes = BASE_URL. "/clientes";
         <span class="visually-hidden">Next</span>
     </button>
 </div>
+
+    <div class="container py-5">
+
+        <div class="text-center mb-5">
+            <div class="mb-2 fs-4" style="color:#1a5c32;">✦</div>
+
+            <section id ="sobre">
+                <h2 style="font-family:'Crimson Pro', Georgia, serif;color:#1e1e1e;">
+                    Sobre Nós
+                </h2>
+            </section>
+            <p class="text-secondary">
+                Somos uma Empresa Júnior do Curso de Engenharia Agronômica
+            </p>
+        </div>
+
+        <section id="sobre" class="py-5" style="background-color:#0f1a0d;">
+            <div class="container">
+
+                <!-- Título -->
+                <div class="text-center mb-5">
+                    <h2 class="display-4 fw-bold">
+                        <span style="color:#d9ff2f;">Quem</span>
+                        <span class="text-white">Somos?</span>
+                    </h2>
+
+                    <p class="text-light mx-auto mt-3" style="max-width:800px;">
+                        A <strong style="color:#2d7845;">Agrinova Jr.</strong> é uma empresa júnior comprometida com o
+                        desenvolvimento do agronegócio por meio da inovação, da excelência técnica e da responsabilidade social.
+                        Atuamos oferecendo assessoria técnica, desenvolvendo projetos e prestando serviços que unem conhecimento
+                        acadêmico e soluções práticas para produtores, empresas e comunidade.
+                    </p>
+                </div>
+
+                <!-- História -->
+                <div class="row align-items-center mb-5">
+
+                    <div class="col-lg-6">
+                        <h3 class="fw-bold mb-3" style="color:#d9ff2f;">
+                            Nossa História
+                        </h3>
+
+                        <p class="text-light">
+                            Nossa atuação busca promover benefícios diretos à sociedade,
+                            incentivando práticas sustentáveis, fortalecendo o desenvolvimento regional
+                            e contribuindo para a formação de profissionais preparados para os desafios
+                            do setor agrícola.
+                        </p>
+
+                        <p class="text-light">
+                            Construímos nossa trajetória baseada na ética, transparência e compromisso
+                            com resultados, desenvolvendo projetos que aproximam a universidade da comunidade.
+                        </p>
+                    </div>
+
+                    <div class="col-lg-6 text-center">
+                        <img src="assets/img/logo.png"
+                             class="img-fluid"
+                             style="max-height:280px; opacity:.85;"
+                             alt="Agrinova Jr">
+                    </div>
+
+                </div>
+
+                <!-- Missão, Visão e Valores -->
+                <div class="row g-4 mb-5">
+
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow"
+                             style="background:#25360f;">
+
+                            <div class="card-body text-center">
+
+                                <h4 class="fw-bold mb-3"
+                                    style="color:#d9ff2f;">
+                                    Missão
+                                </h4>
+
+                                <hr style="border-color:#d9ff2f;">
+
+                                <p class="text-light">
+                                    Promover soluções inovadoras e assessoria técnica em agronomia,
+                                    conciliando formação acadêmica com vivência profissional por meio
+                                    de parcerias, colaboração e ações voltadas à comunidade.
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow"
+                             style="background:#25360f;">
+
+                            <div class="card-body text-center">
+
+                                <h4 class="fw-bold mb-3"
+                                    style="color:#d9ff2f;">
+                                    Visão
+                                </h4>
+
+                                <hr style="border-color:#d9ff2f;">
+
+                                <p class="text-light">
+                                    Ser reconhecida como referência estudantil entre as empresas
+                                    juniores da Agronomia, contribuindo com conhecimento técnico,
+                                    inovação e oportunidades para seus integrantes.
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow"
+                             style="background:#25360f;">
+
+                            <div class="card-body text-center">
+
+                                <h4 class="fw-bold mb-3"
+                                    style="color:#d9ff2f;">
+                                    Valores
+                                </h4>
+
+                                <hr style="border-color:#d9ff2f;">
+
+                                <ul class="list-unstyled text-light text-start">
+                                    <li>✔ Ética e transparência</li>
+                                    <li>✔ Comprometimento</li>
+                                    <li>✔ Inovação</li>
+                                    <li>✔ Espírito empreendedor</li>
+                                    <li>✔ Trabalho em equipe</li>
+                                    <li>✔ Sustentabilidade</li>
+                                    <li>✔ Excelência técnica</li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Diferenciais -->
+                <div class="row mb-5">
+
+                    <div class="col-lg-6">
+
+                        <h3 class="fw-bold mb-4"
+                            style="color:#d9ff2f;">
+                            Nossos Diferenciais
+                        </h3>
+
+                        <div class="row g-3">
+
+                            <div class="col-6">
+                                <div class="p-3 rounded h-100"
+                                     style="background:#25360f;">
+
+                                    <h5 style="color:#d9ff2f;">
+                                        Qualidade
+                                    </h5>
+
+                                    <p class="text-light mb-0">
+                                        Conhecimento técnico aplicado e soluções eficientes.
+                                    </p>
+
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="p-3 rounded h-100"
+                                     style="background:#25360f;">
+
+                                    <h5 style="color:#d9ff2f;">
+                                        Inovação
+                                    </h5>
+
+                                    <p class="text-light mb-0">
+                                        Desenvolvimento contínuo e melhoria constante.
+                                    </p>
+
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="p-3 rounded h-100"
+                                     style="background:#25360f;">
+
+                                    <h5 style="color:#d9ff2f;">
+                                        Sustentabilidade
+                                    </h5>
+
+                                    <p class="text-light mb-0">
+                                        Desenvolvimento aliado à responsabilidade ambiental.
+                                    </p>
+
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="p-3 rounded h-100"
+                                     style="background:#25360f;">
+
+                                    <h5 style="color:#d9ff2f;">
+                                        Crescimento
+                                    </h5>
+
+                                    <p class="text-light mb-0">
+                                        Aprendizado contínuo e fortalecimento da equipe.
+                                    </p>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-6">
+
+                        <h3 class="fw-bold mb-4"
+                            style="color:#d9ff2f;">
+                            Reconhecimentos
+                        </h3>
+
+                        <p class="text-light">
+                            Nosso compromisso com a excelência é refletido nas conquistas alcançadas
+                            pela Agrinova Jr., demonstrando o empenho da equipe e a qualidade dos
+                            serviços prestados.
+                        </p>
+
+                        <div class="row text-center g-3">
+
+                            <div class="col-6">
+                                <div class="rounded p-3"
+                                     style="background:#25360f;">
+                                    <h4 style="color:#d9ff2f;">🏆</h4>
+                                    <strong class="text-light">
+                                        EJ Farol Verde
+                                    </strong>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="rounded p-3"
+                                     style="background:#25360f;">
+                                    <h4 style="color:#d9ff2f;">🥇</h4>
+                                    <strong class="text-light">
+                                        #1 Faturamento
+                                    </strong>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="rounded p-3"
+                                     style="background:#25360f;">
+                                    <h4 style="color:#d9ff2f;">⭐</h4>
+                                    <strong class="text-light">
+                                        EJ Despertada
+                                    </strong>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="rounded p-3"
+                                     style="background:#25360f;">
+                                    <h4 style="color:#d9ff2f;">🌱</h4>
+                                    <strong class="text-light">
+                                        EJ Constância
+                                    </strong>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
 
 
 <!-- <div style="height:100px;background:linear-gradient(90deg, #2d7845, #8ab89a 50%, #2d7845)"></div> -->
@@ -140,7 +422,7 @@ $rota_clientes = BASE_URL. "/clientes";
 
 
 
-<div style="height:100px;background:linear-gradient(90deg, #2d7845, #8ab89a 50%, #2d7845)"></div>
+<!-- <div style="height:100px;background:linear-gradient(90deg, #2d7845, #8ab89a 50%, #2d7845)"></div> -->
 
 <div class="container py-5">
 
@@ -148,10 +430,11 @@ $rota_clientes = BASE_URL. "/clientes";
     <div class="text-center mb-5">
         <div class="mb-2 fs-4" style="color:#1a5c32;">✦</div>
 
-        <h2 style="font-family:'Crimson Pro', Georgia, serif;color:#1e1e1e;">
+        <section id ="contato">
+            <h2 style="font-family:'Crimson Pro', Georgia, serif;color:#1e1e1e;">
             Contato
-        </h2>
-
+            </h2>
+        </section>
         <p class="text-secondary">
             Estamos aqui para recebê-lo
         </p>

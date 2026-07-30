@@ -1,46 +1,72 @@
 <?php
-/*** @var model\Cliente $cliente**/
-
+/** @var model\Cliente $cliente */
 ?>
 
 <!doctype html>
 <html lang="pt-br">
 <head>
     <?php require_once 'templates/template-head.php' ?>
-    <title>agrinovajr </title>
+    <title>Cadastro de Comentário</title>
 </head>
 <body class="container pt-5">
 
 <?php require_once "templates/template-menu.php" ?>
 
-<div class="mt-5"></div>
+<div class="mt-5">
 
+    <form id="formCadastroCliente"
+          action="<?= BASE_URL . '/clientes/comentario' ?>"
+          method="POST">
 
-<div id="carouselExample" class="carousel slide">
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="..." class="d-block w-100" alt="...">
+        <input type="hidden" name="id" value="<?= htmlspecialchars($cliente->getId() ?? '') ?>">
+
+        <div class="mb-3">
+            <label for="nome" class="form-label">Nome</label>
+            <input
+                    id="nome"
+                    name="nome"
+                    type="text"
+                    class="form-control"
+                    placeholder="Insira seu Nome"
+                    value="<?= htmlspecialchars($cliente->getNome() ?? '') ?>">
         </div>
-        <div class="carousel-item">
-            <img src="..." class="d-block w-100" alt="...">
+
+        <div class="mb-3">
+            <label for="email" class="form-label">E-mail</label>
+            <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    class="form-control"
+                    placeholder="Insira seu E-mail"
+                    value="<?= htmlspecialchars($cliente->getEmail() ?? '') ?>">
         </div>
-        <div class="carousel-item">
-            <img src="..." class="d-block w-100" alt="...">
+
+        <div class="mb-3">
+            <label for="textinho" class="form-label">Comentário</label>
+            <textarea
+                    id="textinho"
+                    name="textinho"
+                    class="form-control"
+                    rows="4"
+                    placeholder="Insira seu comentário"><?= htmlspecialchars($cliente->getTextinho() ?? '') ?></textarea>
         </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
+
+        <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-success">
+                Comentar
+            </button>
+
+            <a href="<?= BASE_URL . '/clientes' ?>" class="btn btn-primary">
+                Voltar
+            </a>
+        </div>
+
+    </form>
+
 </div>
 
-
-
 <?php require_once "templates/template-rodape.php" ?>
+
 </body>
 </html>
-

@@ -12,6 +12,7 @@ $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r){
 
     $r->get('/','ClienteController@testp');
     $r->get('/clientes', 'ClienteController@listar');
+    $r->get('/sobre', [App\Controller\HomeController::class, 'sobre']);
     $r->get('/clientes/novo', 'ClienteController@novo');
     $r->get('/clientes/{id}/editar', 'ClienteController@editar');
     $r->get('/clientes/{id}', 'ClienteController@buscar');

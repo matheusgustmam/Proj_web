@@ -101,7 +101,7 @@ class ClienteController
         } catch (Exception $ex) {
             echo "Falha ao listar os clientes" . $ex->getMessage();
         } finally {
-            require __DIR__ . "/../view/pag-comentarios.php";
+            require __DIR__ . "/../view/pag-clientes.php";
         }
     }
 
