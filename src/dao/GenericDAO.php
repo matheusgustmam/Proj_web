@@ -61,4 +61,7 @@ abstract class GenericDAO
             throw new Exception("Falha ao buscar pelo ID" . $ex->getMessage());
         }
     }
+
+
+
 }

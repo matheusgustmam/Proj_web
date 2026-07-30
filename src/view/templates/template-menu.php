@@ -72,6 +72,12 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= BASE_URL ?>/admin/comentarios">
+                        Aprovar Comentários
+                    </a>
+                </li>
+
             </ul>
 
         </div>

@@ -50,6 +50,8 @@ class ClienteController
             $cliente->setTextinho($textinho);
             $cliente->setEmail($email);
 
+            $cliente->setAprovado(false);
+
             ClienteDAO::salvar($cliente);
 
             header('Location: ' . BASE_URL . '/clientes');
@@ -75,7 +77,7 @@ class ClienteController
         } catch (Exception $ex){
             echo "Falha ao buscar cliente" . $ex->getMessage();
         } finally {
-            require __DIR__ . "/../view/pag-comentarios.php";
+            require __DIR__ . "/../view/pag-clientes.php";
         }
     }
 
@@ -90,18 +92,17 @@ class ClienteController
         } catch (Exception $ex) {
             echo "Falha ao buscar cliente" . $ex->getMessage();
         } finally {
-            require __DIR__ . "/../view/pag-comentarios.php";
+            require __DIR__ . "/../view/pag-clientes.php";
         }
     }
 
     public function listar()
     {
         try {
-            $clientes = ClienteDAO::listar();
+            $clientes = ClienteDAO::listarAprovados();
+            require __DIR__ . "/../view/pag-comentarios.php";
         } catch (Exception $ex) {
-            echo "Falha ao listar os clientes" . $ex->getMessage();
-        } finally {
-            require __DIR__ . "/../view/pag-clientes.php";
+            echo "Falha ao listar os comentários: " . $ex->getMessage();
         }
     }
 
@@ -123,6 +124,51 @@ class ClienteController
         } finally {
           header('Location: ' . BASE_URL . '/clientes');
           exit;
+        }
+    }
+
+    public function listarPendentes()
+    {
+        $clientes = ClienteDAO::listarPendentes();
+
+        require __DIR__ . '/../view/admin/pag-aprovar-comentarios.php';
+    }
+
+    public function aprovar(array $params)
+    {
+        $cliente = ClienteDAO::buscarId($params['id']);
+
+        $cliente->setAprovado(true);
+
+        ClienteDAO::salvar($cliente);
+
+        header('Location: ' . BASE_URL . '/admin/comentarios');
+        exit;
+    }
+
+    public function rejeitar(array $params)
+    {
+        try {
+
+            $cliente = ClienteDAO::buscarId($params['id']);
+
+            if (empty($cliente)) {
+                throw new Exception("Comentário não encontrado.");
+            }
+
+            ClienteDAO::deletar($cliente);
+
+            $_SESSION["mensagem_sucesso"] = "Comentário rejeitado.";
+
+        } catch (Exception $ex) {
+
+            $_SESSION["mensagem_erro"] = $ex->getMessage();
+
+        } finally {
+
+            header("Location: " . BASE_URL . "/admin/comentarios");
+            exit;
+
         }
     }
 }

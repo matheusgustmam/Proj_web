@@ -15,9 +15,14 @@ $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r){
     $r->get('/sobre', [App\Controller\HomeController::class, 'sobre']);
     $r->get('/clientes/novo', 'ClienteController@novo');
     $r->get('/clientes/{id}/editar', 'ClienteController@editar');
+
     $r->get('/clientes/{id}', 'ClienteController@buscar');
     $r->post('/clientes/comentario', 'ClienteController@comentario');
     $r->post('/clientes/{id}/remover', 'ClienteController@remover');
+
+    $r->get('/admin/comentarios', 'ClienteController@listarPendentes');
+    $r->post('/clientes/{id}/aprovar', 'ClienteController@aprovar');
+    $r->post('/clientes/{id}/rejeitar', 'ClienteController@rejeitar');
 
 
 

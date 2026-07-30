@@ -17,6 +17,19 @@ class Cliente extends GenericModel{
     #[ORM\Column(type: 'string')]
     private $email;
 
+    #[ORM\Column(type: "boolean")]
+    private bool $aprovado = false;
+
+    public function isAprovado(): bool
+    {
+        return $this->aprovado;
+    }
+
+    public function setAprovado(bool $aprovado): void
+    {
+        $this->aprovado = $aprovado;
+    }
+
     public function getEmail()
     {
         return $this->email;

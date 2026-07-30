@@ -45,10 +45,10 @@ $rota_clientes = BASE_URL . "/clientes";
                 <a class="btn btn-outline-primary"
                    href="<?= $rota_clientes . '/' . $cliente->getId() . '/editar' ?>">
                     <i class="bi bi-pencil-fill"></i>
-                </a>
+               </a>
                 <a class="btn btn-outline-secondary" href='<?= $rota_clientes . '/' . $cliente->getId() ?>'>
                     <i class="bi bi-eye-fill"></i>
-                </a>
+                 </a>
                 <form onsubmit="confirmarRemocao('Deseja remover o Cliente <?= htmlspecialchars($cliente->getNome()) ?>?', event)"
                       action='<?= $rota_clientes . '/' . $cliente->getId() . '/remover' ?>' method='POST'>
                     <button class="btn btn-outline-danger" type='submit'>

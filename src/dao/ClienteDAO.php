@@ -25,4 +25,27 @@ class ClienteDAO extends GenericDAO
         }
 
     }
+    public static function listarAprovados()
+    {
+        $em = Conexao::getEntityManager();
+
+        return $em->getRepository(Cliente::class)
+            ->findBy(
+                ['aprovado' => true],
+                ['id' => 'DESC']
+            );
+    }
+
+    public static function listarPendentes()
+    {
+        $em = Conexao::getEntityManager();
+
+        return $em->getRepository(Cliente::class)
+            ->findBy(
+                ['aprovado' => false],
+                ['id' => 'DESC']
+            );
+    }
+
+
 }
