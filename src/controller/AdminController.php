@@ -62,7 +62,10 @@ class AdminController
             'usuario' => $admin->getUsuario(),
             'nivel' => $admin->getNivel()
         ];
-        header("Location: ".BASE_URL."/admin/comentarios");
+
+        // Gera um novo token CSRF após o login
+        $_SESSION['csrf'] = bin2hex(random_bytes(32));
+
         header("Location: " . BASE_URL . "/admin/comentarios");
         exit;
     }

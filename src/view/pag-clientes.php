@@ -25,11 +25,9 @@
                value="<?= $_SESSION['csrf'] ?>">
 
         <div class="mb-3">
-
             <label for="nome" class="form-label">
                 Nome
             </label>
-
             <input
                     id="nome"
                     name="nome"
@@ -38,9 +36,7 @@
                     placeholder="Insira seu Nome"
                     value="<?= htmlspecialchars($cliente->getNome() ?? '') ?>"
                     required>
-
         </div>
-
 
         <div class="mb-3">
 
@@ -56,9 +52,7 @@
                     placeholder="Insira seu E-mail"
                     value="<?= htmlspecialchars($cliente->getEmail() ?? '') ?>"
                     required>
-
         </div>
-
 
         <div class="mb-3">
 
@@ -73,32 +67,23 @@
                     rows="4"
                     placeholder="Insira seu comentário"
                     required><?= htmlspecialchars($cliente->getTextinho() ?? '') ?></textarea>
-
         </div>
 
-
         <div class="d-flex justify-content-between">
-
             <button type="submit" class="btn btn-success">
                 Comentar
             </button>
-
-
             <a href="<?= BASE_URL . '/clientes' ?>"
                class="btn btn-primary">
                 Voltar
             </a>
-
         </div>
-
 
     </form>
 
 </div>
 
-
 <?php require_once "templates/template-rodape.php" ?>
-
 
 </body>
 </html>

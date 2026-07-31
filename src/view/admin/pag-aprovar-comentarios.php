@@ -26,7 +26,6 @@ $rota_clientes = BASE_URL . "/clientes";
                     isset($_SESSION['admin']) &&
                     $_SESSION['admin']['nivel'] === 'ADMIN'
             ) : ?>
-
                 <a href="<?= BASE_URL ?>/admin/novo" class="btn btn-warning">
                     <i class="bi bi-person-plus-fill"></i>
                     Novo Admin/Moderador
@@ -81,31 +80,30 @@ $rota_clientes = BASE_URL . "/clientes";
                     <td>
 
                         <div class="d-flex gap-2">
-
                             <form action="<?= BASE_URL ?>/clientes/<?= $cliente->getId() ?>/aprovar"
                                   method="POST">
-
+                                <input type="hidden"
+                                       name="csrf"
+                                       value="<?= $_SESSION['csrf'] ?>">
                                 <button class="btn btn-success">
                                     <i class="bi bi-check-circle-fill"></i>
                                     Aprovar
                                 </button>
-
                             </form>
                             <form action="<?= BASE_URL ?>/clientes/<?= $cliente->getId() ?>/rejeitar"
                                   method="POST"
                                   onsubmit="return confirm('Deseja realmente rejeitar este comentário?')">
-
+                                <input type="hidden"
+                                       name="csrf"
+                                       value="<?= $_SESSION['csrf'] ?>">
                                 <button class="btn btn-danger">
                                     <i class="bi bi-x-circle-fill"></i>
                                     Rejeitar
                                 </button>
-
                             </form>
-
                         </div>
 
                     </td>
-
                 </tr>
 
             <?php endforeach; ?>

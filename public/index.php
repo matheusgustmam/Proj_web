@@ -2,6 +2,9 @@
 
 session_start();
 
+if (!isset($_SESSION['csrf'])) {
+    $_SESSION['csrf'] = bin2hex(random_bytes(32));
+}
 require "../vendor/autoload.php";
 
 define('BASE_URL','/Proj_web/public');

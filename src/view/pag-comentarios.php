@@ -1,7 +1,19 @@
 <?php
+
 /** @var \model\Cliente[] $clientes */
 /** @var \model\Cliente $cliente */
+
 $rota_clientes = BASE_URL . "/clientes";
+
+
+$usuarioAdmin = isset($_SESSION['admin']);
+
+$nivelAdmin = $_SESSION['admin']['nivel'] ?? null;
+
+
+$podeEditar = $usuarioAdmin &&
+        in_array($nivelAdmin, ['ADMIN','MODERADOR']);
+
 ?>
 
 <!doctype html>
@@ -40,31 +52,36 @@ $rota_clientes = BASE_URL . "/clientes";
             <td><?= htmlspecialchars($cliente->getEmail()) ?></td>
             <td><?= htmlspecialchars($cliente->getTextinho()) ?></td>
             <td>
-                <a class="btn btn-outline-primary"
-                   href="<?= $rota_clientes . '/' . $cliente->getId() . '/editar' ?>">
-                    <i class="bi bi-pencil-fill"></i>
-               </a>
-                <a class="btn btn-outline-secondary" href='<?= $rota_clientes . '/' . $cliente->getId() ?>'>
-                    <i class="bi bi-eye-fill"></i>
-                 </a>
-                <form onsubmit="confirmarRemocao('Deseja remover o Cliente <?= htmlspecialchars($cliente->getNome()) ?>?', event)"
-                      action='<?= $rota_clientes . '/' . $cliente->getId() . '/remover' ?>' method='POST'>
-                    <button class="btn btn-outline-danger" type='submit'>
-                        <i class="bi bi-trash2-fill"></i>
-                    </button>
-                </form>
+                <?php if($podeEditar): ?>
+                    <a class="btn btn-outline-primary"
+                       href="<?= $rota_clientes . '/' . $cliente->getId() . '/editar' ?>">
+                        <i class="bi bi-pencil-fill"></i>
+                    </a>
+                    <a class="btn btn-outline-secondary"
+                       href="<?= $rota_clientes . '/' . $cliente->getId() ?>">
+                        <i class="bi bi-eye-fill"></i>
+                    </a>
+                    <form class="d-inline"
+                          action="<?= $rota_clientes . '/' . $cliente->getId() . '/remover' ?>"
+                          method="POST"
+                          onsubmit="return confirmarRemocao('Deseja remover o comentário de <?= htmlspecialchars($cliente->getNome()) ?>?');">
+
+                        <input type="hidden"
+                               name="csrf"
+                               value="<?= htmlspecialchars($_SESSION['csrf']) ?>">
+
+                        <button class="btn btn-outline-danger" type="submit">
+                            <i class="bi bi-trash2-fill"></i>
+                        </button>
+                    </form>
+                <?php endif; ?>
             </td>
         </tr>
     <?php endforeach; ?>
     </tbody>
 </table>
 
-
-
 </div>
-
-
-
 
 <?php require_once "templates/template-rodape.php" ?>
 </body>

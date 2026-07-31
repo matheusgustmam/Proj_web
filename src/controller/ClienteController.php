@@ -10,6 +10,21 @@ use utils\Auth;
 
 class ClienteController
 {
+    private function validarCSRF()
+    {
+        if(
+            !isset($_POST['csrf']) ||
+            !isset($_SESSION['csrf']) ||
+            !hash_equals(
+                $_SESSION['csrf'],
+                $_POST['csrf']
+            )
+        ){
+            http_response_code(403);
+            echo "Ação não autorizada.";
+            exit;
+        }
+    }
     public function testp ()
     {
         try {
@@ -61,6 +76,10 @@ class ClienteController
                 'email',
                 FILTER_SANITIZE_EMAIL
             );
+
+            if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+                throw new Exception("E-mail inválido.");
+            }
             $textinho = filter_input(
                 INPUT_POST,
                 'textinho',
@@ -99,6 +118,11 @@ class ClienteController
 
     public function editar(array $params)
     {
+        Auth::verificarNivel([
+            'ADMIN',
+            'MODERADOR'
+        ]);
+
         try {
             $id = $params['id'];
             $cliente = ClienteDAO::buscarId($id);
@@ -139,7 +163,11 @@ class ClienteController
 
     public function remover(array $params)
     {
-        Auth::verificarNivel(['ADMIN']);
+        Auth::verificarNivel([
+            'ADMIN',
+            'MODERADOR'
+        ]);
+        $this->validarCSRF();
         try {
             $id = $params['id'];
             $cliente = ClienteDAO::buscarId($id);
@@ -176,13 +204,14 @@ class ClienteController
             'ADMIN',
             'MODERADOR'
         ]);
+        $this->validarCSRF();
+
         $cliente = ClienteDAO::buscarId(
             $params['id']
         );
-        if(!$cliente){
-            die("Comentário não encontrado");
+        if (!$cliente || $cliente->isAprovado()) {
+            die("Comentário inválido.");
         }
-
         $cliente->setAprovado(true);
         ClienteDAO::salvar($cliente);
         header(
@@ -199,6 +228,8 @@ class ClienteController
             'ADMIN',
             'MODERADOR'
         ]);
+
+        $this->validarCSRF();
         try {
             $cliente = ClienteDAO::buscarId($params['id']);
             if (empty($cliente)) {
