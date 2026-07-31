@@ -6,6 +6,7 @@ use Exception;
 
 use dao\ClienteDAO;
 use model\Cliente;
+use utils\Auth;
 
 class ClienteController
 {
@@ -13,7 +14,6 @@ class ClienteController
     public function testp ()
     {
         try {
-
             require __DIR__ . "/../view/pag-inicial.php";
         }catch (Exception $ex){
             $_SESSION["mensagem_erro_detalhado"] = $ex->getMessage();
@@ -129,21 +129,47 @@ class ClienteController
 
     public function listarPendentes()
     {
+        Auth::verificar();
+
         $clientes = ClienteDAO::listarPendentes();
 
-        require __DIR__ . '/../view/admin/pag-aprovar-comentarios.php';
+        require __DIR__ .
+            '/../view/admin/pag-aprovar-comentarios.php';
     }
+
 
     public function aprovar(array $params)
     {
-        $cliente = ClienteDAO::buscarId($params['id']);
+
+        Auth::verificar();
+
+
+        $cliente = ClienteDAO::buscarId(
+            $params['id']
+        );
+
+
+        if(!$cliente){
+
+            die("Comentário não encontrado");
+
+        }
+
 
         $cliente->setAprovado(true);
 
+
         ClienteDAO::salvar($cliente);
 
-        header('Location: ' . BASE_URL . '/admin/comentarios');
+
+        header(
+            "Location: ".
+            BASE_URL.
+            "/admin/comentarios"
+        );
+
         exit;
+
     }
 
     public function rejeitar(array $params)

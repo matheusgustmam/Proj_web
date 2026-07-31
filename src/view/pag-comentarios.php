@@ -28,7 +28,6 @@ $rota_clientes = BASE_URL . "/clientes";
 <table id="tabela_clientes" class="table table-striped mt-3">
     <thead>
     <tr class="table-dark">
-        <th>#</th>
         <th>Nome</th>
         <th>Email</th>
         <th>Comentario</th>
@@ -37,7 +36,6 @@ $rota_clientes = BASE_URL . "/clientes";
     <tbody>
     <?php foreach ($clientes as $cliente) : ?>
         <tr>
-            <td><?= $cliente->getId() ?></td>
             <td><?= htmlspecialchars($cliente->getNome()) ?></td>
             <td><?= htmlspecialchars($cliente->getEmail()) ?></td>
             <td><?= htmlspecialchars($cliente->getTextinho()) ?></td>
