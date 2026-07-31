@@ -20,8 +20,16 @@ $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r){
     $r->post('/clientes/{id}/remover', 'ClienteController@remover');
 
     $r->get('/admin/comentarios', 'ClienteController@listarPendentes');
-    $r->post('/clientes/{id}/aprovar', 'ClienteController@aprovar');
-    $r->post('/clientes/{id}/rejeitar', 'ClienteController@rejeitar');
+
+    $r->post(
+        '/clientes/{id}/aprovar',
+        'ClienteController@aprovar'
+    );
+
+    $r->post(
+        '/clientes/{id}/rejeitar',
+        'ClienteController@rejeitar'
+    );
 
     $r->get('/login', 'AdminController@login');
     $r->post('/login', 'AdminController@autenticar');
@@ -29,6 +37,10 @@ $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r){
 
     $r->get('/admin/novo', 'AdminController@novo');
     $r->post('/admin/cadastrar', 'AdminController@cadastrar');
+
+
+
+
 
 });
 

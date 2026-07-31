@@ -13,19 +13,28 @@ class Auth
         }
     }
 
-    public static function verificarNivel($nivel)
+    public static function verificarNivel($niveis)
     {
-        self::verificar();
-
-        $nivelUsuario = $_SESSION['admin']['nivel'];
-
-        if ($nivelUsuario === "ADMIN") {
-            return;
+        if (!isset($_SESSION['admin'])) {
+            header("Location: " . BASE_URL . "/login"
+            );
+            exit;
         }
 
-        if ($nivelUsuario !== $nivel) {
+        if (!is_array($niveis)) {
+            $niveis = [$niveis];
+        }
+
+        if (
+            !isset($_SESSION['admin']['nivel']) ||
+            !in_array(
+                $_SESSION['admin']['nivel'],
+                $niveis
+            )
+        ) {
             http_response_code(403);
-            exit("Acesso negado");
+            echo "Acesso negado";
+            exit;
         }
     }
 

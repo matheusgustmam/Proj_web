@@ -8,10 +8,8 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Table(name: "admin")]
 class Admin extends GenericModel
 {
-
     #[ORM\Column(type: "string", length: 100)]
     private string $usuario;
-
 
     #[ORM\Column(type: "string", length: 255)]
     private string $senha;
@@ -48,5 +46,4 @@ class Admin extends GenericModel
     {
         $this->senha = $senha;
     }
-
 }

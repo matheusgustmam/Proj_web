@@ -22,10 +22,17 @@ $rota_clientes = BASE_URL . "/clientes";
 
         <div class="d-flex gap-2">
 
-            <a href="<?= BASE_URL ?>/admin/novo" class="btn btn-warning">
-                <i class="bi bi-person-plus-fill"></i>
-                Novo Admin/Moderador
-            </a>
+            <?php if (
+                    isset($_SESSION['admin']) &&
+                    $_SESSION['admin']['nivel'] === 'ADMIN'
+            ) : ?>
+
+                <a href="<?= BASE_URL ?>/admin/novo" class="btn btn-warning">
+                    <i class="bi bi-person-plus-fill"></i>
+                    Novo Admin/Moderador
+                </a>
+
+            <?php endif; ?>
 
             <a href="<?= BASE_URL ?>/clientes" class="btn btn-primary">
                 <i class="bi bi-arrow-left"></i>

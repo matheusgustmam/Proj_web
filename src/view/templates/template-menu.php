@@ -72,15 +72,41 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= BASE_URL ?>/admin/comentarios">
-                        Aprovar Comentários
-                    </a>
-                </li>
+                <?php if (
+                        isset($_SESSION['admin']) &&
+                        in_array($_SESSION['admin']['nivel'], ['ADMIN', 'MODERADOR'])
+                ): ?>
 
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= BASE_URL ?>/admin/comentarios">
+                            Aprovar Comentários
+                        </a>
+                    </li>
+
+                <?php endif; ?>
+
+                <?php if (!isset($_SESSION['admin'])): ?>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= BASE_URL ?>/login">
+                            Entrar
+                        </a>
+                    </li>
+
+                <?php endif; ?>
+
+                <?php if (isset($_SESSION['admin'])): ?>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-danger"
+                           href="<?= BASE_URL ?>/logout">
+                            <i class="bi bi-box-arrow-right"></i>
+                            Logout
+                        </a>
+                    </li>
+
+                <?php endif; ?>
             </ul>
-
         </div>
-
     </div>
 </nav>

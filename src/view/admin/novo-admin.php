@@ -10,6 +10,7 @@
 
 <?php require_once __DIR__ . '/../templates/template-menu.php'; ?>
 
+<div class="mt-5">
 <h2>
     Cadastrar usuário administrativo
 </h2>
