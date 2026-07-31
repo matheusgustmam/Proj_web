@@ -20,10 +20,24 @@ $rota_clientes = BASE_URL . "/clientes";
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2>Comentários Pendentes</h2>
 
-        <a href="<?= BASE_URL ?>/clientes" class="btn btn-primary">
-            <i class="bi bi-arrow-left"></i>
-            Voltar
-        </a>
+        <div class="d-flex gap-2">
+
+            <a href="<?= BASE_URL ?>/admin/novo" class="btn btn-warning">
+                <i class="bi bi-person-plus-fill"></i>
+                Novo Admin/Moderador
+            </a>
+
+            <a href="<?= BASE_URL ?>/clientes" class="btn btn-primary">
+                <i class="bi bi-arrow-left"></i>
+                Voltar
+            </a>
+
+            <a href="<?= BASE_URL ?>/logout" class="btn btn-outline-danger">
+                <i class="bi bi-box-arrow-right"></i>
+                Logout
+            </a>
+
+        </div>
     </div>
 
     <?php if (empty($clientes)) : ?>
@@ -35,11 +49,9 @@ $rota_clientes = BASE_URL . "/clientes";
     <?php else : ?>
 
         <table class="table table-bordered table-striped table-hover align-middle">
-
             <thead class="table-dark">
 
             <tr>
-
                 <th>ID</th>
                 <th>Nome</th>
                 <th>Email</th>
@@ -55,15 +67,10 @@ $rota_clientes = BASE_URL . "/clientes";
             <?php foreach ($clientes as $cliente): ?>
 
                 <tr>
-
                     <td><?= $cliente->getId() ?></td>
-
                     <td><?= htmlspecialchars($cliente->getNome()) ?></td>
-
                     <td><?= htmlspecialchars($cliente->getEmail()) ?></td>
-
                     <td><?= nl2br(htmlspecialchars($cliente->getTextinho())) ?></td>
-
                     <td>
 
                         <div class="d-flex gap-2">
@@ -72,25 +79,18 @@ $rota_clientes = BASE_URL . "/clientes";
                                   method="POST">
 
                                 <button class="btn btn-success">
-
                                     <i class="bi bi-check-circle-fill"></i>
-
                                     Aprovar
-
                                 </button>
 
                             </form>
-
                             <form action="<?= BASE_URL ?>/clientes/<?= $cliente->getId() ?>/rejeitar"
                                   method="POST"
                                   onsubmit="return confirm('Deseja realmente rejeitar este comentário?')">
 
                                 <button class="btn btn-danger">
-
                                     <i class="bi bi-x-circle-fill"></i>
-
                                     Rejeitar
-
                                 </button>
 
                             </form>
