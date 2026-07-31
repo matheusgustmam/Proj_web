@@ -1,19 +1,11 @@
 <?php
-
 /** @var \model\Cliente[] $clientes */
 /** @var \model\Cliente $cliente */
 
 $rota_clientes = BASE_URL . "/clientes";
-
-
 $usuarioAdmin = isset($_SESSION['admin']);
-
 $nivelAdmin = $_SESSION['admin']['nivel'] ?? null;
-
-
-$podeEditar = $usuarioAdmin &&
-        in_array($nivelAdmin, ['ADMIN','MODERADOR']);
-
+$podeEditar = $usuarioAdmin && in_array($nivelAdmin, ['ADMIN','MODERADOR']);
 ?>
 
 <!doctype html>
