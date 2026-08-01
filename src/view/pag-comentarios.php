@@ -35,6 +35,8 @@ $podeEditar = $usuarioAdmin && in_array($nivelAdmin, ['ADMIN','MODERADOR']);
         <th>Nome</th>
         <th>Email</th>
         <th>Comentario</th>
+        <th>Criado em</th>
+        <th>Alterado em</th>
     </tr>
     </thead>
     <tbody>
@@ -43,6 +45,16 @@ $podeEditar = $usuarioAdmin && in_array($nivelAdmin, ['ADMIN','MODERADOR']);
             <td><?= htmlspecialchars($cliente->getNome()) ?></td>
             <td><?= htmlspecialchars($cliente->getEmail()) ?></td>
             <td><?= htmlspecialchars($cliente->getTextinho()) ?></td>
+            <td>
+                <?= $cliente->getCreatedAt()
+                        ? $cliente->getCreatedAt()->format('d/m/Y H:i')
+                        : '-' ?>
+            </td>
+            <td>
+                <?= $cliente->getUpdatedAt()
+                        ? $cliente->getUpdatedAt()->format('d/m/Y H:i')
+                        : '-' ?>
+            </td>
             <td>
                 <?php if($podeEditar): ?>
                     <a class="btn btn-outline-primary"

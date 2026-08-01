@@ -24,6 +24,18 @@
                name="csrf"
                value="<?= $_SESSION['csrf'] ?>">
 
+        <form id="formCadastroCliente"
+              action="<?= BASE_URL . '/clientes/comentario' ?>"
+              method="POST">
+
+            <input type="hidden"
+                   name="csrf"
+                   value="<?= $_SESSION['csrf'] ?>">
+
+            <input type="hidden"
+                   name="id"
+                   value="<?= htmlspecialchars($cliente->getId() ?? '') ?>">
+
         <div class="mb-3">
             <label for="nome" class="form-label">
                 Nome
@@ -71,7 +83,7 @@
 
         <div class="d-flex justify-content-between">
             <button type="submit" class="btn btn-success">
-                Comentar
+                <?= $cliente->getId() ? 'Salvar alterações' : 'Comentar' ?>
             </button>
             <a href="<?= BASE_URL . '/clientes' ?>"
                class="btn btn-primary">

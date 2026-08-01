@@ -2,6 +2,8 @@
 
 session_start();
 
+date_default_timezone_set('America/Sao_Paulo');
+
 if (!isset($_SESSION['csrf'])) {
     $_SESSION['csrf'] = bin2hex(random_bytes(32));
 }

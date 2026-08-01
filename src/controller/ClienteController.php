@@ -7,6 +7,7 @@ use Exception;
 use dao\ClienteDAO;
 use model\Cliente;
 use utils\Auth;
+use utils\Logger;
 
 class ClienteController
 {
@@ -66,6 +67,7 @@ class ClienteController
             ){
                 die("Token CSRF inválido");
             }
+            $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
             $nome = filter_input(
                 INPUT_POST,
                 'nome',
@@ -90,14 +92,26 @@ class ClienteController
                     "Preencha os campos obrigatórios."
                 );
             }
-            $cliente = new Cliente();
+            if ($id) {
+                // Edição
+                $cliente = ClienteDAO::buscarId($id);
+                if (!$cliente) {
+                    throw new Exception("Comentário não encontrado.");
+                }
+                $cliente->setUpdatedAt(new \DateTime());
+
+            } else {
+                // Novo comentário
+                $cliente = new Cliente();
+                $agora = new \DateTime();
+                $cliente->setCreatedAt($agora);
+                $cliente->setUpdatedAt($agora);
+                $cliente->setAprovado(false);
+            }
+
             $cliente->setNome($nome);
             $cliente->setEmail($email);
             $cliente->setTextinho($textinho);
-
-            // aguarda aprovação
-            $cliente->setAprovado(false);
-
             ClienteDAO::salvar($cliente);
 
             $_SESSION['mensagem_sucesso'] =
@@ -124,8 +138,14 @@ class ClienteController
         ]);
 
         try {
+
             $id = $params['id'];
             $cliente = ClienteDAO::buscarId($id);
+            $cliente->setUpdatedAt(new \DateTime());
+            Logger::registrar(
+                "EDITOU",
+                $cliente->getId()
+            );
             if(empty($cliente)){
                 throw new Exception("Cliente não encontrado");
             }
@@ -175,6 +195,11 @@ class ClienteController
                 throw new Exception("Cliente não encontrado.");
             }
 
+            Logger::registrar(
+                "EXCLUIU",
+                $cliente->getId()
+            );
+
             ClienteDAO::deletar($cliente);
 
             $_SESSION["mensagem_sucesso"] = "Comentario removido com sucesso.";
@@ -214,6 +239,10 @@ class ClienteController
         }
         $cliente->setAprovado(true);
         ClienteDAO::salvar($cliente);
+        Logger::registrar(
+            "APROVOU",
+            $cliente->getId()
+        );
         header(
             "Location: ".
             BASE_URL.
@@ -235,6 +264,11 @@ class ClienteController
             if (empty($cliente)) {
                 throw new Exception("Comentário não encontrado.");
             }
+
+            Logger::registrar(
+                "REJEITOU",
+                $cliente->getId()
+            );
 
             ClienteDAO::deletar($cliente);
             $_SESSION["mensagem_sucesso"] = "Comentário rejeitado.";
