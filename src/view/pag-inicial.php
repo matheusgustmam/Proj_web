@@ -73,7 +73,7 @@ $rota_clientes = BASE_URL. "/clientes";
             </p>
         </div>
         <div class="col-lg-5 text-center">
-            <img src="<?= BASE_URL ?>/assets/img/logo.png"
+            <img src="<?= BASE_URL ?>/assets/img/agrinovaJn.png"
                  class="img-fluid"
                  style="max-height:250px;"
                  alt="Agrinova Jr">
