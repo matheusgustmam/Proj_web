@@ -3,7 +3,7 @@
     "autoload": {
         "psr-4": {
             "MatheusGts\\ProjWeb\\": "src/",
-            "controller\\": "src/controller",
+            "controller\\": "src/controller/",
             "model\\": "src/model/",
             "dao\\": "src/dao/",
             "utils\\": "src/utils/"
