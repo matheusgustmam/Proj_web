@@ -114,6 +114,11 @@ class ClienteController
             $cliente->setTextinho($textinho);
             ClienteDAO::salvar($cliente);
 
+            if ($id) {
+                Logger::registrar("EDITOU", $cliente);
+            } else {
+                Logger::registrar("CRIOU", $cliente);
+            }
             $_SESSION['mensagem_sucesso'] =
                 "Comentário enviado para aprovação.";
             header(
@@ -161,13 +166,12 @@ class ClienteController
         try {
             $id = $params['id'];
             $cliente = ClienteDAO::buscarId($id);
-            if (empty($cliente)) {
-                throw new Exception("Cliente não encontrado");
+            if (!$cliente) {
+                throw new Exception("Comentário não encontrado.");
             }
+            require __DIR__ . "/../view/pag-visualizar-comentario.php";
         } catch (Exception $ex) {
-            echo "Falha ao buscar cliente" . $ex->getMessage();
-        } finally {
-            require __DIR__ . "/../view/pag-clientes.php";
+            echo "Falha ao buscar comentário: " . $ex->getMessage();
         }
     }
 
@@ -197,7 +201,7 @@ class ClienteController
 
             Logger::registrar(
                 "EXCLUIU",
-                $cliente->getId()
+                $cliente
             );
 
             ClienteDAO::deletar($cliente);
@@ -239,10 +243,9 @@ class ClienteController
         }
         $cliente->setAprovado(true);
         ClienteDAO::salvar($cliente);
-        Logger::registrar(
-            "APROVOU",
-            $cliente->getId()
-        );
+
+        Logger::registrar("APROVOU", $cliente);
+
         header(
             "Location: ".
             BASE_URL.
@@ -265,10 +268,8 @@ class ClienteController
                 throw new Exception("Comentário não encontrado.");
             }
 
-            Logger::registrar(
-                "REJEITOU",
-                $cliente->getId()
-            );
+            Logger::registrar("REJEITOU", $cliente);
+            ClienteDAO::deletar($cliente);
 
             ClienteDAO::deletar($cliente);
             $_SESSION["mensagem_sucesso"] = "Comentário rejeitado.";

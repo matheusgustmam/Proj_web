@@ -30,6 +30,10 @@ $rota_clientes = BASE_URL . "/clientes";
                     <i class="bi bi-person-plus-fill"></i>
                     Novo Admin/Moderador
                 </a>
+                <a href="<?= BASE_URL ?>/admin/logs" class="btn btn-dark">
+                    <i class="bi bi-journal-text"></i>
+                    Logs
+                </a>
 
             <?php endif; ?>
 

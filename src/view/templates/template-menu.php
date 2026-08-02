@@ -1,6 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top">
     <div class="container">
-
         <!-- Logo -->
         <a class="navbar-brand d-flex align-items-center" href="<?= BASE_URL ?>/">
             <img src="<?= BASE_URL ?>/assets/img/logo_pagina.png"
@@ -11,7 +10,6 @@
 
             <span class="fw-bold">AgrinovaJr</span>
         </a>
-
         <!-- Botão do menu mobile -->
         <button class="navbar-toggler"
                 type="button"
@@ -20,9 +18,7 @@
                 aria-controls="navbarNav"
                 aria-expanded="false"
                 aria-label="Alternar navegação">
-
             <span class="navbar-toggler-icon"></span>
-
         </button>
 
         <!-- Menu -->
@@ -65,11 +61,32 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link"
-                       href="<?= BASE_URL ?>/Serviços">
+                <li class="nav-item dropdown dropdown-servicos">
+
+                    <a class="nav-link dropdown-toggle"
+                       href="#"
+                       role="button">
                         Serviços
                     </a>
+
+                    <ul class="dropdown-menu">
+
+                        <li>
+                            <a class="dropdown-item"
+                               href="<?= BASE_URL ?>/mini-jardins">
+                                Mini Jardins
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item"
+                               href="<?= BASE_URL ?>/colheita">
+                                Colheita
+                            </a>
+                        </li>
+
+                    </ul>
+
                 </li>
 
                 <?php if (

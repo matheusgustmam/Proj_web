@@ -6,3 +6,4 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/2.3.8/css/dataTables.dataTables.min.css">
 <link rel="stylesheet" href="<?= BASE_URL . '/assets/css/style.css'?>">
+<script src="<?= BASE_URL ?>/assets/js/menu.js"></script>
