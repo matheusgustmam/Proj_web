@@ -16,11 +16,8 @@ class Conexao {
         if (self::$entityManager === null) {
             $config = ORMSetup::createAttributeMetadataConfiguration(
                 paths: [realpath(__DIR__ . '/../model')], // lugar onde estão as classes a serem mapeadas
-                isDevMode: true, // altera a forma do cache de acordo com o ambiente (produção/desenvolvimento). Trocar pra false quando por no servidor real
+                isDevMode: false, // altera a forma do cache de acordo com o ambiente (produção/desenvolvimento). Trocar pra false quando por no servidor real
             );
-
-            $dotenv = Dotenv::createImmutable(dirname(__DIR__,2));
-            $dotenv->load();
 
             // Configuramos a conexão com o banco
             $connection = DriverManager::getConnection([
@@ -30,7 +27,10 @@ class Conexao {
                 'dbname' => $_ENV['DB_NAME'],
                 'user' => $_ENV['DB_USER'],
                 'password' => $_ENV['DB_PASSWORD'],
-
+                'driverOptions' => [
+                    PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
+                    PDO::MYSQL_ATTR_SSL_CA => true
+                ],
             ], $config);
 
             self::$entityManager = new EntityManager($connection, $config);
