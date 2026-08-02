@@ -5,7 +5,6 @@ namespace utils;
 use Doctrine\DBAL\DriverManager;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\ORMSetup;
-use Dotenv\Dotenv;
 use PDO;
 
 class Conexao {
@@ -16,21 +15,22 @@ class Conexao {
         if (self::$entityManager === null) {
             $config = ORMSetup::createAttributeMetadataConfiguration(
                 paths: [realpath(__DIR__ . '/../model')], // lugar onde estão as classes a serem mapeadas
-                isDevMode: true, // altera a forma do cache de acordo com o ambiente (produção/desenvolvimento). Trocar pra false quando por no servidor real
+                isDevMode: false, // altera a forma do cache de acordo com o ambiente (produção/desenvolvimento). Trocar pra false quando por no servidor real
             );
-
-            $dotenv = Dotenv::createImmutable(dirname(__DIR__,2));
-            $dotenv->load();
 
             // Configuramos a conexão com o banco
             $connection = DriverManager::getConnection([
-                'driver' => $_ENV['DB_DRIVER'],
-                'host' => $_ENV['DB_HOST'],
-                'port' => $_ENV['DB_PORT'],
-                'dbname' => $_ENV['DB_NAME'],
-                'user' => $_ENV['DB_USER'],
-                'password' => $_ENV['DB_PASSWORD'],
 
+                'driver' => getenv('DB_DRIVER'),
+                'host' => getenv('DB_HOST'),
+                'port' => getenv('DB_PORT'),
+                'dbname' => getenv('DB_NAME'),
+                'user' => getenv('DB_USER'),
+                'password' => getenv('DB_PASSWORD'),
+                'driverOptions' => [
+                    PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
+                    PDO::MYSQL_ATTR_SSL_CA => true,
+                ],
             ], $config);
 
             self::$entityManager = new EntityManager($connection, $config);
