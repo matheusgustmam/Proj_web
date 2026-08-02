@@ -303,3 +303,24 @@
 
     });
 </script>
+
+<script>
+    document.querySelectorAll('.navbar-nav .nav-link, .dropdown-item')
+        .forEach(function(link){
+
+            link.addEventListener('click', function(){
+
+                let menu = document.querySelector('.navbar-collapse');
+
+                if(menu.classList.contains('show')){
+                    let bsCollapse = bootstrap.Collapse.getInstance(menu);
+
+                    if(bsCollapse){
+                        bsCollapse.hide();
+                    }
+                }
+
+            });
+
+        });
+</script>
