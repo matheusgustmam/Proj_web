@@ -18,9 +18,6 @@ class Conexao {
                 isDevMode: false, // altera a forma do cache de acordo com o ambiente (produção/desenvolvimento). Trocar pra false quando por no servidor real
             );
 
-            echo "<pre>";
-            var_dump($_ENV);
-            exit;
             // Configuramos a conexão com o banco
             $connection = DriverManager::getConnection([
 
