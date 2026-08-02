@@ -9,7 +9,7 @@ if (!isset($_SESSION['csrf'])) {
 }
 require "../vendor/autoload.php";
 
-define('BASE_URL','');
+define('BASE_URL','/Proj_web/public');
 
 
 

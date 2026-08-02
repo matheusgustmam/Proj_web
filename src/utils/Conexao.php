@@ -17,13 +17,7 @@ class Conexao {
                 paths: [realpath(__DIR__ . '/../model')], // lugar onde estão as classes a serem mapeadas
                 isDevMode: false, // altera a forma do cache de acordo com o ambiente (produção/desenvolvimento). Trocar pra false quando por no servidor real
             );
-            echo "<pre>";
-            var_dump(getenv('DB_DRIVER'));
-            var_dump(getenv('DB_HOST'));
-            var_dump(getenv('DB_PORT'));
-            var_dump(getenv('DB_NAME'));
-            var_dump(getenv('DB_USER'));
-            die();
+
             // Configuramos a conexão com o banco
             $connection = DriverManager::getConnection([
 
