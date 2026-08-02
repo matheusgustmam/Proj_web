@@ -65,7 +65,9 @@
 
                     <a class="nav-link dropdown-toggle"
                        href="#"
-                       role="button">
+                       role="button"
+                       data-bs-toggle="dropdown"
+                       aria-expanded="false">
                         Serviços
                     </a>
 
